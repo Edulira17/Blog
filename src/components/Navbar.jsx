@@ -4,7 +4,9 @@ import './Navbar.css'
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <h2>Blog</h2>
+      <h2>
+        <Link to={`/`}>Blog</Link>
+      </h2>
       <ul>
         <li>
           <Link to={`/`}>Home</Link>
@@ -12,6 +14,11 @@ const Navbar = () => {
         <li>
           <Link to={`/new`} className="new-btn">
             Novo post
+          </Link>
+        </li>
+        <li>
+          <Link to={`/admin`}>
+            Gerenciar
           </Link>
         </li>
       </ul>
