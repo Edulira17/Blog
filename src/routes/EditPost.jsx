@@ -1,6 +1,6 @@
 import blogFetch from "../axios/config";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useId } from "react";
 
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -24,6 +24,17 @@ const EditPost = () => {
       console.log(error)
     }
   };
+  
+  // function that sends edited posts with a PUT request:
+  const editPost = async (e) => {
+    e.preventDefault();
+
+    const post = { title, body, useId: 1 };
+
+    await blogFetch.put(`/posts/${post.id}`, {
+      body: post
+    })
+  }
 
   useEffect(() => {
     getPost();
